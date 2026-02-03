@@ -111,13 +111,13 @@ export default function Hero() {
                     <div className="flex flex-col md:flex-row items-center justify-center gap-4">
                         <a
                             href="#projects"
-                            className="px-8 py-4 bg-primary text-white font-medium rounded-full hover:bg-primary/90 transition-all hover:scale-105 shadow-[0_0_20px_rgba(139,92,246,0.5)] cursor-pointer z-20 relative"
+                            className="w-full md:w-auto px-8 py-4 bg-primary text-white font-medium rounded-full hover:bg-primary/90 transition-all hover:scale-105 shadow-[0_0_20px_rgba(139,92,246,0.5)] cursor-pointer z-20 relative"
                         >
                             View Work
                         </a>
                         <a
                             href="#contact"
-                            className="px-8 py-4 bg-transparent border border-border text-foreground font-medium rounded-full hover:bg-foreground/5 transition-all hover:scale-105 cursor-pointer z-20 relative"
+                            className="w-full md:w-auto px-8 py-4 bg-transparent border border-border text-foreground font-medium rounded-full hover:bg-foreground/5 transition-all hover:scale-105 cursor-pointer z-20 relative"
                         >
                             Contact Me
                         </a>

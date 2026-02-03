@@ -263,21 +263,21 @@ export default function Skills() {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: index * 0.05 }}
-            className="bg-secondary/50 backdrop-blur-sm border border-border p-6 rounded-xl hover:border-primary/50 transition-all duration-300 group"
+            className="bg-secondary/50 backdrop-blur-sm border border-border p-4 md:p-6 rounded-xl hover:border-primary/50 transition-all duration-300 group"
         >
-            <div className="flex items-center justify-between mb-4">
-                <div className="p-3 bg-gradient-to-br from-primary/20 to-cyan-400/20 rounded-lg text-primary group-hover:text-primary transition-colors">
-                    <skill.icon size={24} />
+            <div className="flex items-center justify-between mb-3 md:mb-4">
+                <div className="p-2 md:p-3 bg-gradient-to-br from-primary/20 to-cyan-400/20 rounded-lg text-primary group-hover:text-primary transition-colors">
+                    <skill.icon size={20} className="md:w-6 md:h-6" />
                 </div>
                 <div className="text-right">
-                    <div className="text-2xl font-bold text-foreground">{skill.level}%</div>
+                    <div className="text-xl md:text-2xl font-bold text-foreground">{skill.level}%</div>
                     <div className="text-xs text-muted-foreground">Proficiency</div>
                 </div>
             </div>
 
-            <h3 className="text-xl font-bold text-foreground mb-3">{skill.name}</h3>
+            <h3 className="text-lg md:text-xl font-bold text-foreground mb-2 md:mb-3">{skill.name}</h3>
 
-            <div className="w-full bg-muted h-2 rounded-full overflow-hidden mb-2">
+            <div className="w-full bg-muted h-1.5 md:h-2 rounded-full overflow-hidden mb-2">
                 <motion.div
                     initial={{ width: 0 }}
                     animate={{ width: `${skill.level}%` }}
@@ -334,7 +334,7 @@ export default function Skills() {
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
-                        className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+                        className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 pt-20 md:pt-4"
                         onClick={() => setIsModalOpen(false)}
                         onWheel={(e) => e.stopPropagation()}
                         onTouchMove={(e) => e.stopPropagation()}
@@ -344,28 +344,29 @@ export default function Skills() {
                             animate={{ scale: 1, opacity: 1 }}
                             exit={{ scale: 0.9, opacity: 0 }}
                             transition={{ type: "spring", damping: 25, stiffness: 300 }}
-                            className="bg-background/95 backdrop-blur-xl border border-white/10 rounded-2xl max-w-6xl w-full max-h-[90vh] overflow-hidden flex flex-col"
+                            className="bg-background/95 backdrop-blur-xl border border-white/10 rounded-2xl max-w-6xl w-full max-h-[85vh] md:max-h-[90vh] overflow-hidden flex flex-col mt-4 md:mt-0"
                             onClick={(e) => e.stopPropagation()}
                             onWheel={(e) => e.stopPropagation()}
                             onTouchMove={(e) => e.stopPropagation()}
                         >
                             {/* Modal Header */}
-                            <div className="flex items-center justify-between p-6 border-b border-border flex-shrink-0">
-                                <div>
-                                    <h3 className="text-2xl font-bold text-foreground">Technical Skills</h3>
-                                    <p className="text-muted-foreground mt-1">Complete overview of my technical expertise</p>
+                            <div className="flex items-center justify-between p-4 md:p-6 border-b border-border flex-shrink-0">
+                                <div className="flex-1 pr-4">
+                                    <h3 className="text-xl md:text-2xl font-bold text-foreground">Technical Skills</h3>
+                                    <p className="text-muted-foreground mt-1 text-sm md:text-base">Complete overview of my technical expertise</p>
                                 </div>
                                 <button
                                     onClick={() => setIsModalOpen(false)}
-                                    className="p-2 hover:bg-accent rounded-full transition-colors"
+                                    className="p-3 hover:bg-accent rounded-full transition-colors flex-shrink-0 -mr-1"
+                                    aria-label="Close modal"
                                 >
-                                    <X size={24} className="text-muted-foreground hover:text-foreground" />
+                                    <X size={20} className="text-muted-foreground hover:text-foreground" />
                                 </button>
                             </div>
 
                             {/* Modal Content - Scrollable */}
                             <div
-                                className="flex-1 overflow-y-auto p-6 scrollbar-thin scrollbar-thumb-white/20 scrollbar-track-transparent"
+                                className="flex-1 overflow-y-auto p-4 md:p-6 scrollbar-thin scrollbar-thumb-white/20 scrollbar-track-transparent"
                                 style={{
                                     scrollBehavior: 'smooth',
                                     overscrollBehavior: 'contain'
@@ -373,19 +374,19 @@ export default function Skills() {
                                 onWheel={(e) => e.stopPropagation()}
                                 onTouchMove={(e) => e.stopPropagation()}
                             >
-                                <div className="space-y-8">
+                                <div className="space-y-6 md:space-y-8">
                                     {Object.entries(skillsByCategory).map(([category, categorySkills]) => (
                                         <div key={category}>
                                             <motion.h4
                                                 initial={{ opacity: 0, x: -20 }}
                                                 animate={{ opacity: 1, x: 0 }}
-                                                className="text-xl font-bold text-foreground mb-4 flex items-center gap-2"
+                                                className="text-lg md:text-xl font-bold text-foreground mb-3 md:mb-4 flex items-center gap-2"
                                             >
-                                                <div className="w-1 h-6 bg-gradient-to-b from-primary to-cyan-400 rounded-full"></div>
+                                                <div className="w-1 h-5 md:h-6 bg-gradient-to-b from-primary to-cyan-400 rounded-full"></div>
                                                 {category}
-                                                <span className="text-sm text-muted-foreground ml-2">({categorySkills.length} skills)</span>
+                                                <span className="text-xs md:text-sm text-muted-foreground ml-2">({categorySkills.length} skills)</span>
                                             </motion.h4>
-                                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4">
                                                 {categorySkills.map((skill, index) => renderModalSkillCard(skill, index))}
                                             </div>
                                         </div>
@@ -394,12 +395,12 @@ export default function Skills() {
                             </div>
 
                             {/* Modal Footer */}
-                            <div className="p-6 border-t border-border bg-secondary/30 flex-shrink-0">
-                                <div className="flex items-center justify-between">
-                                    <div className="text-sm text-muted-foreground">
+                            <div className="p-4 md:p-6 border-t border-border bg-secondary/30 flex-shrink-0">
+                                <div className="flex items-center justify-between text-xs md:text-sm">
+                                    <div className="text-muted-foreground">
                                         Total Skills: <span className="text-primary font-medium">{skills.length}</span>
                                     </div>
-                                    <div className="text-sm text-muted-foreground">
+                                    <div className="text-muted-foreground">
                                         Average Proficiency: <span className="text-primary font-medium">
                                             {Math.round(skills.reduce((acc, skill) => acc + skill.level, 0) / skills.length)}%
                                         </span>

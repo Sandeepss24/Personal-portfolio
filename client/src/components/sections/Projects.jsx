@@ -38,7 +38,7 @@ const projects = [
     },
     {
         id: 4,
-        title: "SaaS Platform",
+        title: "GSAP Demo",
         subtitle: "Animated Landing Page",
         description: "A modern, high-performance product landing page built with smooth GSAP animations and interactive scroll-based effects. The project focuses on delivering an immersive user experience with clean UI, responsive layouts, and engaging motion design optimized for all devices.",
         tech: ["HTML5", "CSS3", "JavaScript", "GSAP", "ScrollTrigger"],
